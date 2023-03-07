@@ -5,6 +5,7 @@ using namespace std;
 int inputGrade();
 string inputName();
 void printStudentInfo(string names[], int grades[] , int size);
+void bestStuden(string names[], int grades[] , int size);
 int main() {
   int numberOfStudents;
   cout<<"\nEnter number of students. ";
@@ -19,6 +20,7 @@ int main() {
     grades[i]=inputGrade();
   }
   printStudentInfo(names, grades,numberOfStudents);
+   bestStuden(names,grades ,numberOfStudents );
   }
   int inputGrade() {
     int gr;
@@ -35,10 +37,23 @@ int main() {
     return na;
   }
 void printStudentInfo(string names[], int grades[] , int size){
-  cout<<"\n Name         Grade";
+  cout<<"\n Name        Grade";
   for(int i=0; i<size; i++){
     cout<<"\n"<<names[i]<<"        "<<grades[i];
   }
+}
+void bestStuden(string names[], int grades[] , int size){
+  int highest=0;
+  string bestStudent=names[2];
+  for(int i=0; i<size; i++){
+    if(grades[i]>highest){
+      highest=grades[i];
+      bestStudent=names[i];
+    }
+    
+  }
+  cout<<"\nThe best student is: "<<bestStudent<<" "<<highest;
+  
 }
     
  
