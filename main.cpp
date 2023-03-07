@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+int inputGrade();
+string inputName();
 int main() {
   int numberOfStudents;
   cout<<"\nEnter number of students. ";
@@ -11,11 +13,24 @@ int main() {
   string names[numberOfStudents];
   for(int i=0; i<numberOfStudents; i++){
     cout<<"Enter the name #"<<i+1;
-    cin>>names[i];
+    names[i]=inputName();
     cout<<"Enter the grades of the student";
-    cin>>grades[i];
+    grades[i]=inputGrade();
   }
-  
+  }
+  int inputGrade() {
+    int gr;
+    cin>>gr;
+    while(gr<0 || gr>100){
+      cout<<"\nInvalid grade. Enter a grade between 0 to 100";
+      cin>>gr;
+    }
+    return gr;
+  }
+  string inputName() {
+    string na;
+    cin>>na;
+    return na;
+  }
     
  
-}
